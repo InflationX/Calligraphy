@@ -85,6 +85,10 @@ public class CalligraphyConfig {
      * @see CalligraphyConfig.Builder#addCustomViewWithSetTypeface(Class)
      */
     private final Set<Class<?>> hasTypefaceViews;
+    /**
+     * An object that can map a resolved font name to another font name.
+     */
+    private final FontMapper mFontMapper;
 
     private CalligraphyConfig(Builder builder) {
         mIsFontSet = builder.isFontSet;
@@ -95,6 +99,7 @@ public class CalligraphyConfig {
         tempMap.putAll(builder.mStyleClassMap);
         mClassStyleAttributeMap = Collections.unmodifiableMap(tempMap);
         hasTypefaceViews = Collections.unmodifiableSet(builder.mHasTypefaceClasses);
+        mFontMapper = builder.fontMapper;
     }
 
     /**
@@ -130,6 +135,10 @@ public class CalligraphyConfig {
         return mAttrId;
     }
 
+    public FontMapper getFontMapper() {
+        return mFontMapper;
+    }
+
     public static class Builder {
         /**
          * Default AttrID if not set.
@@ -157,6 +166,8 @@ public class CalligraphyConfig {
         private Map<Class<? extends TextView>, Integer> mStyleClassMap = new HashMap<>();
 
         private Set<Class<?>> mHasTypefaceClasses = new HashSet<>();
+
+        private FontMapper fontMapper;
 
         /**
          * This defaults to R.attr.fontPath. So only override if you want to use your own attrId.
@@ -210,6 +221,11 @@ public class CalligraphyConfig {
         public Builder addCustomViewWithSetTypeface(Class<?> clazz) {
             customViewTypefaceSupport = true;
             mHasTypefaceClasses.add(clazz);
+            return this;
+        }
+
+        public Builder setFontMapper(FontMapper fontMapper) {
+            this.fontMapper = fontMapper;
             return this;
         }
 

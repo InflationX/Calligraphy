@@ -144,6 +144,8 @@ class Calligraphy {
                     textViewFont = CalligraphyUtils.pullFontPathFromTheme(context, styleForTextView[0], mAttributeId);
             }
 
+            textViewFont = applyFontMapper(textViewFont);
+
             // Still need to defer the Native action bar, appcompat-v7:21+ uses the Toolbar underneath. But won't match these anyway.
             final boolean deferred = matchesResourceIdName(view, ACTION_BAR_TITLE) || matchesResourceIdName(view, ACTION_BAR_SUBTITLE);
 
@@ -160,6 +162,7 @@ class Calligraphy {
         // Try to set typeface for custom views using interface method or via reflection if available
         if (view instanceof HasTypeface) {
             String textViewFont = resolveFontPath(context, attrs);
+            textViewFont = applyFontMapper(textViewFont);
             Typeface typeface = getDefaultTypeface(context, textViewFont);
             if (typeface != null) {
                 ((HasTypeface) view).setTypeface(typeface);
@@ -167,6 +170,7 @@ class Calligraphy {
         } else if (mCalligraphyConfig.isCustomViewTypefaceSupport() && mCalligraphyConfig.isCustomViewHasTypeface(view)) {
             final Method setTypeface = ReflectionUtils.getMethod(view.getClass(), "setTypeface");
             String fontPath = resolveFontPath(context, attrs);
+            fontPath = applyFontMapper(fontPath);
             Typeface typeface = getDefaultTypeface(context, fontPath);
             if (setTypeface != null && typeface != null) {
                 ReflectionUtils.invokeMethod(view, setTypeface, typeface);
@@ -203,6 +207,11 @@ class Calligraphy {
         }
 
         return textViewFont;
+    }
+
+    private String applyFontMapper(String textViewFont) {
+        FontMapper fontMapper = mCalligraphyConfig.getFontMapper();
+        return fontMapper != null ? fontMapper.map(textViewFont) : textViewFont;
     }
 
     private static class ToolbarLayoutListener implements ViewTreeObserver.OnGlobalLayoutListener {
