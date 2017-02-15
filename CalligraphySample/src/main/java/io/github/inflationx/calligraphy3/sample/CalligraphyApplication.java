@@ -1,11 +1,11 @@
-package uk.co.chrisjenx.calligraphy.sample;
+package io.github.inflationx.calligraphy3.sample;
 
 import android.app.Application;
 
+import io.github.inflationx.calligraphy3.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
+import io.github.inflationx.calligraphy3.FontMapper;
 import io.github.inflationx.viewpump.ViewPump;
-import uk.co.chrisjenx.calligraphy3.CalligraphyConfig;
-import uk.co.chrisjenx.calligraphy3.CalligraphyInterceptor;
-import uk.co.chrisjenx.calligraphy3.FontMapper;
 
 /**
  * Created by chris on 06/05/2014.

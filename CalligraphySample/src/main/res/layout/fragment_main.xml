@@ -13,7 +13,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="uk.co.chrisjenx.calligraphy.sample.PlaceholderFragment"
+        tools:context="io.github.inflationx.calligraphy3.sample.PlaceholderFragment"
         tools:ignore="MissingPrefix">
 
         <TextView
@@ -66,13 +66,13 @@
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.FontPathView"/>
 
-        <uk.co.chrisjenx.calligraphy.sample.CustomTextView
+        <io.github.inflationx.calligraphy3.sample.CustomTextView
             fontPath="fonts/Oswald-Stencbab.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/defined_custom_view"/>
 
-        <uk.co.chrisjenx.calligraphy.sample.CustomViewWithTypefaceSupport
+        <io.github.inflationx.calligraphy3.sample.CustomViewWithTypefaceSupport
             fontPath="fonts/Oswald-Stencbab.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -106,7 +106,7 @@
             android:layout_marginTop="16dp"
             android:hint="@string/edit_text_hint"/>
 
-        <uk.co.chrisjenx.calligraphy.sample.TextField
+        <io.github.inflationx.calligraphy3.sample.TextField
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/custom_view_style_text"/>

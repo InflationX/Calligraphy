@@ -1,4 +1,4 @@
-package uk.co.chrisjenx.calligraphy.sample;
+package io.github.inflationx.calligraphy3.sample;
 
 import android.annotation.TargetApi;
 import android.content.Context;

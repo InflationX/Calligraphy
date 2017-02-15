@@ -1,4 +1,4 @@
-package uk.co.chrisjenx.calligraphy.sample;
+package io.github.inflationx.calligraphy3.sample;
 
 import android.content.Context;
 import android.util.AttributeSet;

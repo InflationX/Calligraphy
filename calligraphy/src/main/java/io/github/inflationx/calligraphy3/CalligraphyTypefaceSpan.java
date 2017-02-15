@@ -1,4 +1,4 @@
-package uk.co.chrisjenx.calligraphy3;
+package io.github.inflationx.calligraphy3;
 
 import android.graphics.Paint;
 import android.graphics.Typeface;

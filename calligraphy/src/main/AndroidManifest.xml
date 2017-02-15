@@ -1,4 +1,4 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uk.co.chrisjenx.calligraphy3">
+    package="io.github.inflationx.calligraphy3">
     <application />
 </manifest>

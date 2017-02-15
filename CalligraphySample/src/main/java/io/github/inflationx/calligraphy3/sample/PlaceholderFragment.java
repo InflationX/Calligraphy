@@ -1,4 +1,4 @@
-package uk.co.chrisjenx.calligraphy.sample;
+package io.github.inflationx.calligraphy3.sample;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

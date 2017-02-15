@@ -16,6 +16,5 @@
 #   public *;
 #}
 
--keep class uk.co.chrisjenx.calligraphy3.* { *; }
--keep class uk.co.chrisjenx.calligraphy3.*$* { *; }
-
+-keep class io.github.inflationx.calligraphy3.* { *; }
+-keep class io.github.inflationx.calligraphy3.*$* { *; }
