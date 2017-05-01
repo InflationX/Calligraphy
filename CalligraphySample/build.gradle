@@ -24,7 +24,7 @@ android {
 
 dependencies {
     compile project(':calligraphy')
-    compile 'io.github.inflationx:viewpump:0.1.1-SNAPSHOT'
+    compile 'io.github.inflationx:viewpump:1.0.0'
     compile 'com.android.support:support-v4:24.0.0'
     compile 'com.android.support:appcompat-v7:24.0.0'
 
