@@ -11,6 +11,8 @@
         <item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>
         <!-- Custom Style Attribute-->
         <item name="textFieldStyle">@style/TextField</item>
+        <!-- Custom font path theme attribute -->
+        <item name="customAttrFontPath">fonts/Oswald-Stencbab.ttf</item>
     </style>
 
     <!-- AppTheme ActionBar Style -->
