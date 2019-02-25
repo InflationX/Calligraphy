@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.util.Log;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +33,13 @@ public final class TypefaceUtils {
         synchronized (sCachedFonts) {
             try {
                 if (!sCachedFonts.containsKey(filePath)) {
-                    final Typeface typeface = Typeface.createFromAsset(assetManager, filePath);
+                    final File file = new File(filePath);
+                    final Typeface typeface;
+                    if(file.isAbsolute()) {
+                        typeface = Typeface.createFromFile(file);
+                    } else {
+                        typeface = Typeface.createFromAsset(assetManager, filePath);
+                    }
                     sCachedFonts.put(filePath, typeface);
                     return typeface;
                 }
