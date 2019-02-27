@@ -84,6 +84,16 @@ public final class TypefaceUtils {
         sCachedFonts.put(path, typeface);
     }
 
+    /**
+     * 'Uninstall' a font from the font cache
+     * @param path
+     */
+    public static void uninstallFont(String path){
+        if(sCachedFonts.containsKey(path)){
+            sCachedFonts.remove(path);
+        }
+    }
+
     private TypefaceUtils() {
     }
 }
