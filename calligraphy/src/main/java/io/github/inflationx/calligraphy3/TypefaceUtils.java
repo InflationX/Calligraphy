@@ -73,6 +73,17 @@ public final class TypefaceUtils {
         return typeface != null && sCachedFonts.containsValue(typeface);
     }
 
+
+    /**
+     * Inject a specific font into the font cache to be resolved for a given font path
+     * This allows arbitrary fonts to be loaded dynamically at runtime from any source (e.g from disk)
+     * @param path
+     * @param typeface
+     */
+    public static void installFont(String path, Typeface typeface){
+        sCachedFonts.put(path, typeface);
+    }
+
     private TypefaceUtils() {
     }
 }
