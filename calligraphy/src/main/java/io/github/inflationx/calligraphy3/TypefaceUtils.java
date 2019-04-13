@@ -4,7 +4,6 @@ import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.util.Log;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +35,7 @@ public final class TypefaceUtils {
                     final Typeface typeface;
                     if (filePath.startsWith("/")) {
                         // Absolute path, so load from that file path
-                        typeface = Typeface.createFromFile(new File(filePath));
+                        typeface = Typeface.createFromFile(filePath);
                     } else {
                         typeface = Typeface.createFromAsset(assetManager, filePath);
                     }
