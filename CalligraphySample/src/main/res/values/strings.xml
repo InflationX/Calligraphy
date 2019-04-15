@@ -23,5 +23,6 @@
 
     <string name="button_default">Default Font (show dialog)</string>
     <string name="button_defined">Bold Button (show toast)</string>
+    <string name="button_absolute">Load from absolute paths</string>
 
 </resources>
