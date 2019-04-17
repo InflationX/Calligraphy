@@ -18,11 +18,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'consumer-proguard-rules.txt'
         }
     }
+
+    lintOptions {
+        // we don't always want to use the latest version of the support library
+        disable 'GradleDependency'
+        textOutput 'stdout'
+        textReport System.getenv('CI') == 'true'
+    }
 }
 
 dependencies {
     compileOnly 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'io.github.inflationx:viewpump:1.0.0'
+    implementation 'io.github.inflationx:viewpump:2.0.1'
 
     testImplementation 'androidx.annotation:annotation:1.0.0'
     testImplementation 'androidx.test:runner:1.1.0'

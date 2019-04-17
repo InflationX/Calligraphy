@@ -1,6 +1,6 @@
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="io.github.inflationx.calligraphy3.sample.MainActivity"
@@ -10,10 +10,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_material_light"
+        android:background="?colorPrimaryDark"
         android:minHeight="?attr/actionBarSize"
-        android:translationZ="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:elevation="4dp"/>
 
     <FrameLayout
         android:id="@+id/container"

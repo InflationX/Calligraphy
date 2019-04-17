@@ -1,5 +1,7 @@
 package io.github.inflationx.calligraphy3;
 
+import android.os.Build;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -66,7 +68,9 @@ public class CalligraphyConfig {
         DEFAULT_STYLES.put(AppCompatMultiAutoCompleteTextView.class, android.R.attr.autoCompleteTextViewStyle);
         DEFAULT_STYLES.put(AppCompatCheckBox.class, android.R.attr.checkboxStyle);
         DEFAULT_STYLES.put(AppCompatRadioButton.class, android.R.attr.radioButtonStyle);
-        DEFAULT_STYLES.put(AppCompatCheckedTextView.class, android.R.attr.checkedTextViewStyle);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            DEFAULT_STYLES.put(AppCompatCheckedTextView.class, android.R.attr.checkedTextViewStyle);
+        }
     }
 
     /**

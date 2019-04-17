@@ -1,9 +1,11 @@
 package io.github.inflationx.calligraphy3.sample;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+@SuppressLint("AppCompatCustomView")
 public class CustomTextView extends TextView {
 
     public CustomTextView(Context context) {

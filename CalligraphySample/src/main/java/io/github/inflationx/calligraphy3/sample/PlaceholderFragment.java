@@ -1,5 +1,6 @@
 package io.github.inflationx.calligraphy3.sample;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
@@ -67,6 +68,7 @@ public class PlaceholderFragment extends Fragment {
      * Demo showing usage of {@link TypefaceUtils#load(AssetManager, String)} with a custom
      * absolute path.
      */
+    @SuppressLint("SetTextI18n")
     @OnClick({R.id.load_absolute})
     public void onLoadAbsolute() {
         // Pick a random system font

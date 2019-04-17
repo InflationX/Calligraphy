@@ -21,11 +21,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning', 'GradleDependency'
+        textOutput 'stdout'
+        textReport System.getenv('CI') == 'true'
+    }
 }
 
 dependencies {
     implementation project(':calligraphy')
-    implementation 'io.github.inflationx:viewpump:1.0.0'
+    implementation 'io.github.inflationx:viewpump:2.0.1'
     implementation 'androidx.appcompat:appcompat:1.0.2'
 
     implementation 'com.jakewharton:butterknife:9.0.0-rc1'

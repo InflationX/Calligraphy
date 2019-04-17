@@ -32,7 +32,7 @@
 
     <style name="AppTheme.Widget"/>
 
-    <style name="TextViewNoStyleParent">
+    <style name="TextViewNoStyleParent" tools:ignore="UnusedResources">
         <item name="android:textColor">@android:color/holo_blue_dark</item>
         <item name="fontPath">fonts/gtw.ttf</item>
     </style>
