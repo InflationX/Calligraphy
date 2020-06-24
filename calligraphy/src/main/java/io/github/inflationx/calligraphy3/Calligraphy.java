@@ -250,7 +250,12 @@ class Calligraphy {
                 }
             }
             removeSelf(toolbar);
-            toolbar.setSubtitle(originalSubTitle);
+            String subTitle = toolbar.getSubtitle().toString();
+            if (BLANK.equals(subTitle)) {
+                toolbar.setSubtitle(originalSubTitle);
+            } else {
+                toolbar.setSubtitle(subTitle);
+            }
         }
 
         private void removeSelf(final Toolbar toolbar) {// Our dark deed is done
