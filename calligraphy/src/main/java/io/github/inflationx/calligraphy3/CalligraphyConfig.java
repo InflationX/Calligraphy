@@ -129,7 +129,7 @@ public class CalligraphyConfig {
     }
 
     /**
-     * @return mFontPath for text views might be null
+     * @return mFontTypeface for text views might be null
      */
     public Typeface getFontTypeface() {
         return mFontTypeface;
