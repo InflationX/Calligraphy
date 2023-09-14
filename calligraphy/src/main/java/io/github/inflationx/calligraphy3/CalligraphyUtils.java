@@ -115,14 +115,18 @@ public final class CalligraphyUtils {
         return applyFontToTextView(textView, typeface, deferred);
     }
 
-    static void applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config) {
-        applyFontToTextView(context, textView, config, false);
+    static boolean applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config) {
+        return applyFontToTextView(context, textView, config, false);
     }
 
-    static void applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, boolean deferred) {
-        if (context == null || textView == null || config == null) return;
-        if (!config.isFontSet()) return;
-        applyFontToTextView(context, textView, config.getFontPath(), deferred);
+    static boolean applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, boolean deferred) {
+        if (textView == null || config == null) return false;
+        if (!config.isFontSet()) return false;
+        if (config.getFontTypeface() != null) {
+            return applyFontToTextView(textView, config.getFontTypeface(), deferred);
+        } else {
+            return applyFontToTextView(context, textView, config.getFontPath(), deferred);
+        }
     }
 
     /**
@@ -134,16 +138,16 @@ public final class CalligraphyUtils {
      * @param textViewFont nullable, will use Default Config if null or fails to find the
      *                     defined font.
      */
-    public static void applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, final String textViewFont) {
-        applyFontToTextView(context, textView, config, textViewFont, false);
+    public static boolean applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, final String textViewFont) {
+        return applyFontToTextView(context, textView, config, textViewFont, false);
     }
 
-    static void applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, final String textViewFont, boolean deferred) {
-        if (context == null || textView == null || config == null) return;
+    static boolean applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, final String textViewFont, boolean deferred) {
+        if (context == null || textView == null || config == null) return false;
         if (!TextUtils.isEmpty(textViewFont) && applyFontToTextView(context, textView, textViewFont, deferred)) {
-            return;
+            return false;
         }
-        applyFontToTextView(context, textView, config, deferred);
+        return applyFontToTextView(context, textView, config, deferred);
     }
 
     /**
