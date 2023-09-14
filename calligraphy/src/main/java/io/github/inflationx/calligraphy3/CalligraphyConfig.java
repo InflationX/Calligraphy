@@ -1,5 +1,6 @@
 package io.github.inflationx.calligraphy3;
 
+import android.graphics.Typeface;
 import android.os.Build;
 
 import android.text.TextUtils;
@@ -82,6 +83,10 @@ public class CalligraphyConfig {
      */
     private final String mFontPath;
     /**
+     * The default Font Path if nothing else is setup.
+     */
+    private final Typeface mFontTypeface;
+    /**
      * Default Font Path Attr Id to lookup
      */
     private final int mAttrId;
@@ -106,6 +111,7 @@ public class CalligraphyConfig {
     private CalligraphyConfig(Builder builder) {
         mIsFontSet = builder.isFontSet;
         mFontPath = builder.fontAssetPath;
+        mFontTypeface = builder.fontTypeface;
         mAttrId = builder.attrId;
         mCustomViewTypefaceSupport = builder.customViewTypefaceSupport;
         final Map<Class<? extends TextView>, Integer> tempMap = new HashMap<>(DEFAULT_STYLES);
@@ -120,6 +126,13 @@ public class CalligraphyConfig {
      */
     public String getFontPath() {
         return mFontPath;
+    }
+
+    /**
+     * @return mFontPath for text views might be null
+     */
+    public Typeface getFontTypeface() {
+        return mFontTypeface;
     }
 
     /**
@@ -174,6 +187,10 @@ public class CalligraphyConfig {
          */
         private String fontAssetPath = null;
         /**
+         * The default Typeface
+         */
+        private Typeface fontTypeface = null;
+        /**
          * Additional Class Styles. Can be empty.
          */
         private Map<Class<? extends TextView>, Integer> mStyleClassMap = new HashMap<>();
@@ -198,11 +215,28 @@ public class CalligraphyConfig {
          *
          * @param defaultFontAssetPath a path to a font file in the assets folder, e.g. "fonts/Roboto-light.ttf",
          *                             passing null will default to the device font-family.
+         *                             This clears default font typeface.
          * @return this builder.
          */
         public Builder setDefaultFontPath(String defaultFontAssetPath) {
             this.isFontSet = !TextUtils.isEmpty(defaultFontAssetPath);
+            this.fontTypeface = null;
             this.fontAssetPath = defaultFontAssetPath;
+            return this;
+        }
+
+        /**
+         * Set the default font if you don't define one else where in your styles.
+         *
+         * @param defaultFontTypeface a Typeface object,
+         *                        passing null will default to the device font-family.
+         *                        This clears default font asset path.
+         * @return this builder.
+         */
+        public Builder setDefaultTypeface(Typeface defaultFontTypeface) {
+            this.isFontSet = defaultFontTypeface != null;
+            this.fontAssetPath = null;
+            this.fontTypeface = defaultFontTypeface;
             return this;
         }
 
@@ -243,7 +277,7 @@ public class CalligraphyConfig {
         }
 
         public CalligraphyConfig build() {
-            this.isFontSet = !TextUtils.isEmpty(fontAssetPath);
+            this.isFontSet = !TextUtils.isEmpty(fontAssetPath) || this.fontTypeface != null;
             return new CalligraphyConfig(this);
         }
     }
