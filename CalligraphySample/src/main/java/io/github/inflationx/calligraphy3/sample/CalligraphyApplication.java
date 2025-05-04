@@ -5,6 +5,7 @@ import android.app.Application;
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.calligraphy3.FontMapper;
+import io.github.inflationx.calligraphy3.TypefaceUtils;
 import io.github.inflationx.viewpump.ViewPump;
 
 /**
@@ -19,7 +20,8 @@ public class CalligraphyApplication extends Application {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/Roboto-ThinItalic.ttf")
+//                                .setDefaultFontPath("fonts/Roboto-ThinItalic.ttf")
+                                .setDefaultTypeface(TypefaceUtils.load(getAssets(), "fonts/Roboto-ThinItalic.ttf"))
                                 .setFontAttrId(R.attr.fontPath)
                                 .setFontMapper(new FontMapper() {
                                     @Override

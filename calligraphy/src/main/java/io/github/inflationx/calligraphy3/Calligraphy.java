@@ -179,6 +179,9 @@ class Calligraphy {
     }
 
     private Typeface getDefaultTypeface(Context context, String fontPath) {
+        if (mCalligraphyConfig.getFontTypeface() != null) {
+            return mCalligraphyConfig.getFontTypeface();
+        }
         if (TextUtils.isEmpty(fontPath)) {
             fontPath = mCalligraphyConfig.getFontPath();
         }
